@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:client_management_system.Views"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        Background="#6B6F7C"
+        Title="C.M.S." Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -21,17 +22,28 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-
+        <!--
+        #2D2842
+        #6B6F7C
+        
+        
+        
+        -->
         <!-- Row 1 -->
-        <Button x:Name="LoadPageOne" Grid.Row="1" Grid.Column="1">Load First Page</Button>
-        <Button x:Name="LoadPageTwo" Grid.Row="1" Grid.Column="2">Load Second Page</Button>
+        <Button x:Name="LoadPageOne" Grid.Row="2" Grid.Column="1">Load First Page</Button>
+        <Button x:Name="LoadPageTwo" Grid.Row="2" Grid.Column="2">Load Second Page</Button>
+
+        <TextBlock xml:space="preserve" FontFamily="/client_management_system;component/#Uni Neue Light" Grid.Row="1" Grid.Column="1" FontSize="30" Grid.ColumnSpan="6" TextAlignment="Right">Client Management
+            System</TextBlock>
+
         
         <!-- Row 2 -->
-        <ContentControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" 
+        <ContentControl Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="1"
                         x:Name="ActiveItem" />
         
         

@@ -10,7 +10,7 @@ namespace client_management_system.ViewModels
 {
     public class SecondChildViewModel : Screen
     {
-        private string _firstName = "Jeff";
+        private string _firstName;
         private string _lastName;
         private BindableCollection<CustomerModel> _customers = new BindableCollection<CustomerModel>();
         private CustomerModel _selectedCustomer;
@@ -78,6 +78,11 @@ namespace client_management_system.ViewModels
         {
             FirstName = "";
             LastName = "";
+        }
+
+        public void AddUser(string firstName, string lastName)
+        {
+            Customers.Add(new CustomerModel { FirstName = firstName, LastName = lastName });
         }
     }
 }

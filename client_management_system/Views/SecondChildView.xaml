@@ -23,27 +23,31 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <!-- Row 1 -->
-        <TextBlock Text="{Binding Path=FullName, Mode=OneWay}" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="{Binding Path=FullName, Mode=OneWay}" Grid.Row="1" Grid.Column="5"/>
 
 
         <!-- Row 2 -->
-        <TextBox MinWidth="100"  Grid.Row="2" Grid.Column="1" x:Name="FirstName"></TextBox>
-        <TextBox MinWidth="100"  Grid.Row="2" Grid.Column="2" x:Name="LastName"></TextBox>
+        <TextBox MinWidth="100"  Grid.Row="2" Grid.Column="2" x:Name="FirstName"></TextBox>
+        <TextBox MinWidth="100"  Grid.Row="3" Grid.Column="2" x:Name="LastName"></TextBox>
 
 
         <!-- Row 3 -->
-        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="Customers"
-                  SelectedItem="{Binding Path=SelectedCustomer, Mode=OneWayToSource}"
-                  DisplayMemberPath="FirstName"/>
-        <TextBlock Grid.Row="3" Grid.Column="2" x:Name="SelectedCustomer_LastName" />
+
+        <TextBlock Grid.Row="3" Grid.Column="4" x:Name="SelectedCustomer_LastName" />
 
         <!-- Row 4 -->
         <Button x:Name="ClearText" Grid.Row="4" Grid.Column="1">Clear Text</Button>
+        <Button x:Name="AddUser" Grid.Row="4" Grid.Column="2">Add User</Button>
+
+        <!-- Row 5 -->
+        <DataGrid x:Name="Customers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"/>
+        
 
     </Grid>
 </UserControl>
