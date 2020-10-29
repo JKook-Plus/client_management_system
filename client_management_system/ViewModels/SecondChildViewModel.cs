@@ -84,5 +84,10 @@ namespace client_management_system.ViewModels
         {
             Customers.Add(new CustomerModel { FirstName = firstName, LastName = lastName });
         }
+
+        public bool CanAddUser(string firstName, string lastName)
+        {
+            return !String.IsNullOrWhiteSpace(firstName) && !String.IsNullOrWhiteSpace(lastName);
+        }
     }
 }
