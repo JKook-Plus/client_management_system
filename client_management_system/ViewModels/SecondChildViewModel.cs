@@ -12,6 +12,12 @@ namespace client_management_system.ViewModels
     {
         private string _firstName;
         private string _lastName;
+        private string _email;
+        private string _address;
+        private int _phone;
+        private DateTime _dob;
+
+
         private BindableCollection<CustomerModel> _customers = new BindableCollection<CustomerModel>();
         private CustomerModel _selectedCustomer;
 
@@ -21,6 +27,50 @@ namespace client_management_system.ViewModels
             Customers.Add(new CustomerModel { FirstName = "John", LastName = "Smith" });
             Customers.Add(new CustomerModel { FirstName = "Mark", LastName = "Doe" });
             Customers.Add(new CustomerModel { FirstName = "Jenifer", LastName = "Bloe" });
+        }
+
+
+        public DateTime DOB
+        {
+            get { return _dob; }
+            set 
+            { 
+                _dob = value;
+                NotifyOfPropertyChange(() => DOB);
+            }
+        }
+
+
+        public int Phone
+        {
+            get { return _phone; }
+            set 
+            { 
+                _phone = value;
+                NotifyOfPropertyChange(() => Phone);
+            }
+        }
+
+
+        public string Address
+        {
+            get { return _address; }
+            set {
+                _address = value;
+                NotifyOfPropertyChange(() => Address);
+            }
+        }
+        
+
+        
+        public string Email
+        {
+            get { return _email; }
+            set 
+            { 
+                _email = value;
+                NotifyOfPropertyChange(() => Email);
+            }
         }
 
         public string FirstName
@@ -69,20 +119,24 @@ namespace client_management_system.ViewModels
             }
         }
 
-        public bool CanClearText(string firstName, string lastName)
+        public bool CanClearText(string firstName, string lastName, string email, string address, int phone, DateTime dob)
         {
-            return !String.IsNullOrWhiteSpace(firstName) || !String.IsNullOrWhiteSpace(lastName);
+            return !String.IsNullOrWhiteSpace(firstName) || !String.IsNullOrWhiteSpace(lastName) || !String.IsNullOrWhiteSpace(email) || !String.IsNullOrWhiteSpace(address);
         }
 
-        public void ClearText(string firstName, string lastName)
+        public void ClearText(string firstName, string lastName, string email, string address, int phone, DateTime dob)
         {
             FirstName = "";
             LastName = "";
+            Email = "";
+            Address = "";
+            Phone = default(int);
+            DOB = default(DateTime);
         }
 
-        public void AddUser(string firstName, string lastName)
+        public void AddUser(string firstName, string lastName, string email, string address, int phone, DateTime dob)
         {
-            Customers.Add(new CustomerModel { FirstName = firstName, LastName = lastName });
+            Customers.Add(new CustomerModel { FirstName = firstName, LastName = lastName, Email = email, Address = address, Phone = phone, DOB = dob});
         }
 
         public bool CanAddUser(string firstName, string lastName)

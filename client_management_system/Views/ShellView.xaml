@@ -5,15 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:client_management_system.Views"
         mc:Ignorable="d"
-        Background="#6B6F7C"
+        Background="#1967af"
         FontFamily="/client_management_system;component/Fonts/#Uni Neue Light"
         FontWeight="ExtraBold"
         Title="THE GOOD GALS®" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="15.889"/>
-            <ColumnDefinition Width="68.111"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -25,28 +23,26 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="309*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-
         <!--
         #2D2842
         #6B6F7C
-        
-        
-        
+        #9098B6
+        #5693BB
+        #FFFFFF
         -->
         <!-- Row 1 -->
-        <Button x:Name="LoadPageOne" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">Load First Page</Button>
-        <Button x:Name="LoadPageTwo" Grid.Row="2" Grid.Column="3">Load Second Page</Button>
+        <Button x:Name="LoadPageOne" MaxHeight="20" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">Load First Page</Button>
+        <Button x:Name="LoadPageTwo" MaxHeight="20" Grid.Row="2" Grid.Column="3">Load Second Page</Button>
 
-        <TextBlock xml:space="preserve" FontFamily="/client_management_system;component/Fonts/#OPTIFutura-ExtraBlackCond" Grid.Row="1" Grid.Column="1" FontSize="30" Grid.ColumnSpan="7" Text="THE GOOD GALS®"/>
-
+        <TextBlock Foreground="White" xml:space="preserve" FontFamily="/client_management_system;component/Fonts/#OPTIFutura-ExtraBlackCond" Grid.Row="1" Grid.Column="2" FontSize="30" Grid.ColumnSpan="7" Text="THE GOOD GALS®" VerticalAlignment="Bottom"/>
+        <Image Source="/client_management_system;component/Images/pay_less_pay_cash.png" Grid.Row="1" Grid.Column="1" Width="50" Height="50" />
 
         <!-- Row 2 -->
-        <ContentControl Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="1"
-                        x:Name="ActiveItem" />
+        <ContentControl Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="1" x:Name="ActiveItem" />
 
 
         <!--comment -->

@@ -35,33 +35,33 @@
 
 
         <!-- Row 2 -->
-        <TextBlock MinWidth="100" Grid.Row="0" Grid.Column="1" Text="First Name" Padding="0,0,10,0"/>
-        <TextBlock MinWidth="100" Grid.Row="1" Grid.Column="1" Text="Last Name" Padding="0,0,10,0"/>
-        <TextBox MinWidth="100"  Grid.Row="0" Grid.Column="2" x:Name="FirstName" Padding="0,0,20,0"></TextBox>
-        <TextBox MinWidth="100"  Grid.Row="1" Grid.Column="2" x:Name="LastName" Padding="0,0,20,0"></TextBox>
+        <TextBlock Width="100" Grid.Row="0" Grid.Column="1" Text="First Name" Margin="0,0,10,0"/>
+        <TextBlock Width="100" Grid.Row="1" Grid.Column="1" Text="Last Name" Margin="0,0,10,0"/>
+        <TextBox Width="100"  Grid.Row="0" Grid.Column="2" x:Name="FirstName" Margin="0,0,20,0"></TextBox>
+        <TextBox Width="100"  Grid.Row="1" Grid.Column="2" x:Name="LastName" Margin="0,0,20,0"></TextBox>
 
-        <TextBlock MinWidth="100" Grid.Row="0" Grid.Column="3" Text="Email" Padding="0,0,10,0"/>
-        <TextBlock MinWidth="100" Grid.Row="1" Grid.Column="3" Text="Address" Padding="0,0,10,0"/>
-        <TextBox MinWidth="100"  Grid.Row="0" Grid.Column="4" x:Name="Email" Padding="0,0,20,0"/>
-        <TextBox MinWidth="100"  Grid.Row="1" Grid.Column="4" x:Name="Address" Padding="0,0,20,0"/>
+        <TextBlock Width="100" Grid.Row="0" Grid.Column="3" Text="Email" Margin="0,0,10,0"/>
+        <TextBlock Width="100" Grid.Row="1" Grid.Column="3" Text="Address" Margin="0,0,10,0"/>
+        <TextBox Width="100"  Grid.Row="0" Grid.Column="4" x:Name="Email" Margin="0,0,20,0"/>
+        <TextBox Width="100"  Grid.Row="1" Grid.Column="4" x:Name="Address" Margin="0,0,20,0"/>
 
-        <TextBlock MinWidth="100" Grid.Row="0" Grid.Column="5" Text="Phone" Padding="0,0,10,0"/>
-        <TextBlock MinWidth="100" Grid.Row="1" Grid.Column="5" Text="DOB" Padding="0,0,10,0"/>
-        <TextBox MinWidth="100"  Grid.Row="0" Grid.Column="6" x:Name="Phone" Padding="0,0,20,0"/>
-        <TextBox MinWidth="100"  Grid.Row="1" Grid.Column="6" x:Name="DOB" Padding="0,0,20,0"/>
+        <TextBlock Width="100" Grid.Row="0" Grid.Column="5" Text="Phone" Margin="0,0,10,0"/>
+        <TextBlock Width="100" Grid.Row="1" Grid.Column="5" Text="DOB" Margin="0,0,10,0"/>
+        <TextBox Width="100"  Grid.Row="0" Grid.Column="6" x:Name="Phone" Margin="0,0,20,0"/>
+        <DatePicker  Grid.Row="1" Grid.Column="6" x:Name="DOB" Margin="0,0,20,0" />
 
 
         <!-- Row 3 -->
 
-        <TextBlock Grid.Row="2" Grid.Column="4" x:Name="SelectedCustomer_LastName" />
+        <TextBlock Grid.Row="2" Grid.Column="7" x:Name="SelectedCustomer_LastName" />
 
         <!-- Row 4 -->
         <Button x:Name="ClearText" Grid.Row="4" Grid.Column="1">Clear Text</Button>
         <Button x:Name="AddUser" Grid.Row="4" Grid.Column="2">Add User</Button>
 
         <!-- Row 5 -->
-        <DataGrid x:Name="Customers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"/>
-        
+        <DataGrid ItemsSource="{Binding Person.Subjects}" x:Name="Customers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" CanUserAddRows="false" CanUserReorderColumns="False"/>
+
 
     </Grid>
 </UserControl>
