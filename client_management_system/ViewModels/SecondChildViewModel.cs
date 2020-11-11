@@ -57,19 +57,31 @@ namespace client_management_system.ViewModels
 
             string aaa = System.IO.File.ReadAllText(@"C:\Temp\test.json");
 
-            object temp_object = JsonConvert.DeserializeObject(aaa);
-/*            object te = JsonConvert.DeserializeObject<CustomerModel>(tmp);
-*/
-/*            Trace.WriteLine(te);
-            Trace.WriteLine(te.GetType());*/
+            dynamic temp_object = JsonConvert.DeserializeObject(aaa);
 
-            /*            _customers = new BindableCollection<CustomerModel>((IEnumerable<CustomerModel>)te);
-            */
-/*            _customers = (BindableCollection<CustomerModel>)te;
-*/
+            Trace.WriteLine(temp_object);
 
-            /*            Trace.WriteLine(_customers);
-            */
+            foreach (var item in temp_object)
+            {
+                Console.WriteLine("{0} {1} {2} {3}\n", item.id, item.displayName,
+                    item.slug, item.imageUrl);
+            }
+
+
+            /*
+
+            //object te = JsonConvert.DeserializeObject<CustomerModel>(tmp);
+
+            //Trace.WriteLine(te);
+            //Trace.WriteLine(te.GetType());
+
+            //_customers = new BindableCollection<CustomerModel>((IEnumerable<CustomerModel>)te);
+
+            //_customers = (BindableCollection<CustomerModel>)te;
+
+
+            //Trace.WriteLine(_customers);
+
 
 
 
