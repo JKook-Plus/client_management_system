@@ -60,7 +60,7 @@
         <Button x:Name="AddUser" Grid.Row="4" Grid.Column="2">Add User</Button>
 
         <!-- Row 5 -->
-        <DataGrid ItemsSource="{Binding Person.Subjects}" x:Name="Customers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" CanUserAddRows="false" CanUserReorderColumns="False"/>
+        <DataGrid x:Name="Customers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" CanUserAddRows="false" CanUserReorderColumns="False"/>
 
 
     </Grid>
