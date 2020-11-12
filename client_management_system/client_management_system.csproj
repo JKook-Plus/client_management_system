@@ -102,6 +102,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="ViewModels\FirstChildViewModel.cs" />
     <Compile Include="ViewModels\SecondChildViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

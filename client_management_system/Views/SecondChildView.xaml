@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:client_management_system.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#9098B6">
+             Background="#9098B6"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -31,7 +32,6 @@
         </Grid.RowDefinitions>
 
         <!-- Row 1 -->
-        <TextBlock Text="{Binding Path=FullName, Mode=OneWay}" Grid.Row="0" Grid.Column="5"/>
 
 
         <!-- Row 2 -->
@@ -48,7 +48,7 @@
         <TextBlock Width="100" Grid.Row="0" Grid.Column="5" Text="Phone" Margin="0,0,10,0"/>
         <TextBlock Width="100" Grid.Row="1" Grid.Column="5" Text="DOB" Margin="0,0,10,0"/>
         <TextBox Width="100"  Grid.Row="0" Grid.Column="6" x:Name="Phone" Margin="0,0,20,0"/>
-        <DatePicker  Grid.Row="1" Grid.Column="6" x:Name="DOB" Margin="0,0,20,0" />
+        <DatePicker Grid.Row="1" Grid.Column="6" x:Name="DOB" Margin="0,0,20,0" />
 
 
         <!-- Row 3 -->
@@ -60,7 +60,7 @@
         <Button x:Name="AddUser" Grid.Row="4" Grid.Column="2">Add User</Button>
 
         <!-- Row 5 -->
-        <DataGrid x:Name="Customers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" CanUserAddRows="false" CanUserReorderColumns="False"/>
+        <DataGrid x:Name="Customers" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" CanUserAddRows="false" CanUserReorderColumns="False" />
 
 
     </Grid>

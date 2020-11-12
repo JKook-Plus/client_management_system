@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace client_management_system.ViewModels
 {
-    public class FirstChildViewModel : Screen
+    public class FirstChildViewModel : ShellViewModel
     {
+        public FirstChildViewModel()
+        {
+            //asd
+        }
+
     }
 }

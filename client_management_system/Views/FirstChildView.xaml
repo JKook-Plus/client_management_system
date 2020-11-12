@@ -8,6 +8,19 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Background="#5693bb ">
     <Grid>
-            
+        <ComboBox x:Name="Customers">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding LastName}"/>
+                        <TextBlock Text=" - "/>
+                        <TextBlock Text="{Binding Phone}"/>
+                    </StackPanel>
+                    
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </UserControl>
