@@ -61,7 +61,12 @@ namespace client_management_system.ViewModels
             }
         }
 
-
+        public void updateCustomers()
+        {
+            JsonDeserializeUsers(@"C:\Temp\users.json");
+            JsonSerialize(_customers, @"C:\Temp\users.json");
+            
+        }
 
         public void AddUser(
                             string firstName = "",

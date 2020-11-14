@@ -24,10 +24,23 @@ namespace client_management_system.ViewModels
         private string _phone;
         private DateTime _dob = DateTime.Now;
 
-        
+        public void whatacc()
+        {
+            if (_selectedCustomer == null)
+            {
+                Trace.WriteLine("_selectedCustomer is empty");
+            }
+            else
+            {
+                Customers.Remove(_selectedCustomer);
+                updateCustomers();
+            }
+            
+        }
         
         public SecondChildViewModel()
         {
+            
         }
 
 
@@ -97,12 +110,6 @@ namespace client_management_system.ViewModels
                 NotifyOfPropertyChange(() => LastName);
             }
         }
-
-
-
-
-
-
 
         public bool CanClearText(string firstName, string lastName, string email, string address, string phone, DateTime dob)
         {
