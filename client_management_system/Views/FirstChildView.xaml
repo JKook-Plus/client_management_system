@@ -4,11 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:client_management_system.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Background="#5693bb ">
+             mc:Ignorable="d"
+             Background="#5693bb"
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -29,20 +32,126 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="User: " Padding="5,0,5,0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="Customers" Grid.Column="1" Grid.Row="0" MinWidth="100">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding LastName}"/>
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Product Name: " Padding="5,0,5,0" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="1" Grid.Row="1" x:Name="ProductName" MinWidth="100"/>
+
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="Variation: " Padding="5,0,5,0" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="3" Grid.Row="0" x:Name="Variation" MinWidth="100"/>
+
+            <TextBlock Grid.Column="2" Grid.Row="1" Text="Discount (%): " Padding="5,0,5,0" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="3" Grid.Row="1" x:Name="Discount" MinWidth="100"/>
+
+            <TextBlock Grid.Column="6" Grid.Row="0" Text="Cost/Item ($): " Padding="5,0,5,0" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="7" Grid.Row="0" x:Name="Amount" MinWidth="100"/>
+
+            <TextBlock Grid.Column="6" Grid.Row="1" Text="Quantity: " Padding="5,0,5,0" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="7" x:Name="Quantity" Grid.Row="1" MinWidth="100"/>
+
+            <Button Grid.Row="0" Grid.Column="8" x:Name="ClearText" Content="Clear Text" Padding="5,0,5,0" MinWidth="100"/>
+            <Button Grid.Row="1" Grid.Column="8" x:Name="AddTransaction" Content="Add Transaction" Padding="5,0,5,0" MinWidth="100"/>
+
+        </Grid>
         
-        <ComboBox x:Name="Customers" Grid.Column="1" Grid.Row="1" MinWidth="100">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding FirstName}"/>
-                        <TextBlock Text=" "/>
-                        <TextBlock Text="{Binding LastName}"/>
-                        <TextBlock Text=" - "/>
-                        <TextBlock Text="{Binding Phone}"/>
-                    </StackPanel>
-                    
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="First Name: " HorizontalAlignment="Right" FontWeight="Bold"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" x:Name="SelectedCustomer_FirstName"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Last Name: " HorizontalAlignment="Right" FontWeight="Bold"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" x:Name="SelectedCustomer_LastName"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Phone: " HorizontalAlignment="Right" FontWeight="Bold"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" x:Name="SelectedCustomer_Phone"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="Email: " HorizontalAlignment="Right" FontWeight="Bold"/>
+            <TextBlock Grid.Row="4" Grid.Column="2" x:Name="SelectedCustomer_Email"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="Address: " HorizontalAlignment="Right" FontWeight="Bold"/>
+            <TextBlock Grid.Row="5" Grid.Column="2" x:Name="SelectedCustomer_Address"/>
+
+            <TextBlock Grid.Row="6" Grid.Column="1" Text="Date of Birth: " HorizontalAlignment="Right" FontWeight="Bold"/>
+            <TextBlock Grid.Row="6" Grid.Column="2" x:Name="SelectedCustomer_DOB"/>
+
+        </Grid>
+
+        
+        
+            
+        <DataGrid SelectionMode="Single" x:Name="Transactions" 
+                  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                  CanUserAddRows="False" CanUserReorderColumns="False" IsReadOnly="False" AlternatingRowBackground="LightGray"
+                  AutoGenerateColumns="False"
+                  cal:Message.Attach="[Event CellEditEnding] = [Action SaveCustomers()]"
+                  CanUserDeleteRows="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" Width="225"/>
+                <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" Width="200"/>
+                <DataGridTextColumn Header="Variation" Binding="{Binding Variation}" Width="150"/>
+                <DataGridTextColumn Header="Discount" Binding="{Binding Discount}" Width="75"/>
+                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="75"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="75"/>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" Width="100"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
     </Grid>
 </UserControl>

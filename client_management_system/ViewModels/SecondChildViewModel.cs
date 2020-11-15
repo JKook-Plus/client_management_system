@@ -12,9 +12,17 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows;
+using System.ComponentModel;
+using System.Windows.Data;
+using System.Windows.Controls;
+using System.Data;
+using client_management_system.Views;
 
 namespace client_management_system.ViewModels
 {
+
+
     public class SecondChildViewModel : ShellViewModel
     {
         private string _firstName;
@@ -23,27 +31,17 @@ namespace client_management_system.ViewModels
         private string _address;
         private string _phone;
         private DateTime _dob = DateTime.Now;
-
-        public void whatacc()
-        {
-            if (_selectedCustomer == null)
-            {
-                Trace.WriteLine("_selectedCustomer is empty");
-            }
-            else
-            {
-                Customers.Remove(_selectedCustomer);
-                updateCustomers();
-            }
-            
-        }
         
+
         public SecondChildViewModel()
         {
             
         }
 
-
+        public void deleteUserBtn()
+        {
+            DeleteSelectedUser();
+        }
 
         public DateTime DOB
         {
@@ -54,7 +52,6 @@ namespace client_management_system.ViewModels
                 NotifyOfPropertyChange(() => DOB);
             }
         }
-
 
         public string Phone
         {
@@ -75,9 +72,9 @@ namespace client_management_system.ViewModels
                 NotifyOfPropertyChange(() => Address);
             }
         }
-        
 
-        
+
+
         public string Email
         {
             get { return _email; }
@@ -132,4 +129,5 @@ namespace client_management_system.ViewModels
         }
 
     }
+
 }

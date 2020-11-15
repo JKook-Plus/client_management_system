@@ -8,7 +8,7 @@
         Background="#1967af"
         FontFamily="/client_management_system;component/Fonts/#Uni Neue Light"
         FontWeight="ExtraBold"
-        Title="THE GOOD GALS®" Height="450" Width="800">
+        Title="THE GOOD GALS®" Height="500" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
