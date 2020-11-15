@@ -35,9 +35,13 @@
         #FFFFFF
         -->
         <!-- Row 1 -->
+        
+        <!--pages-->
         <Button x:Name="LoadPageOne" MaxHeight="20" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">Load First Page</Button>
         <Button x:Name="LoadPageTwo" MaxHeight="20" Grid.Row="2" Grid.Column="3">Load Second Page</Button>
 
+        
+        <!--Logo and title-->
         <TextBlock Foreground="White" xml:space="preserve" FontFamily="/client_management_system;component/Fonts/#OPTIFutura-ExtraBlackCond" Grid.Row="1" Grid.Column="2" FontSize="30" Grid.ColumnSpan="7" Text="THE GOOD GALS®" VerticalAlignment="Bottom"/>
         <Image Source="/client_management_system;component/Images/pay_less_pay_cash.png" Grid.Row="1" Grid.Column="1" Width="50" Height="50" />
 

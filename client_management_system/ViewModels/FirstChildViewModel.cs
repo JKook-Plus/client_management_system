@@ -83,16 +83,19 @@ namespace client_management_system.ViewModels
             }
         }
 
+        //Chcecks to see if I can clear text
         public bool CanClearText(string customer, string productName, string variation, float discount, float amount, float quantity)
         {
             return !String.IsNullOrWhiteSpace(productName) || !String.IsNullOrWhiteSpace(variation) || !String.IsNullOrWhiteSpace(discount.ToString()) || !String.IsNullOrWhiteSpace(amount.ToString()) || !String.IsNullOrWhiteSpace(quantity.ToString());
         }
 
+        //Button for deleting Transaction
         public void DeleteTransactionBtn()
         {
             DeleteSelectedTransaction();
         }
 
+        //Clears Text
         public void ClearText(string _customer, string productName, string variation, float discount, float amount, float quantity)
         {
             ProductName = "";

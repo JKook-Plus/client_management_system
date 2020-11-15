@@ -93,7 +93,7 @@
 
         </Grid>
         
-        
+        <!--Data of picked Customer-->
         <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -111,6 +111,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
+            <!--User inputs -->
             <TextBlock Grid.Row="1" Grid.Column="1" Text="First Name: " HorizontalAlignment="Right" FontWeight="Bold"/>
             <TextBlock Grid.Row="1" Grid.Column="2" x:Name="SelectedCustomer_FirstName"/>
 
@@ -130,7 +131,7 @@
             <TextBlock Grid.Row="6" Grid.Column="2" x:Name="SelectedCustomer_DOB"/>
 
         </Grid>
-
+        <!--Grid of Transactions-->
         <DataGrid SelectionMode="Single" x:Name="Transactions" 
                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
                   CanUserAddRows="False" CanUserReorderColumns="False" IsReadOnly="False" AlternatingRowBackground="LightGray"
@@ -143,7 +144,7 @@
                 <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" Width="200"/>
                 <DataGridTextColumn Header="Variation" Binding="{Binding Variation}" Width="150"/>
                 <DataGridTextColumn Header="Discount" Binding="{Binding Discount}" Width="75"/>
-                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="75"/>
+                <DataGridTextColumn Header="Cost/Item" Binding="{Binding Amount}" Width="75"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="75"/>
                 <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" Width="100"/>
             </DataGrid.Columns>
@@ -189,6 +190,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
+                <!--Buttons and data-->
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="Customer: " HorizontalAlignment="Right" FontWeight="Bold"/>
         <TextBlock Grid.Row="1" Grid.Column="2" x:Name="SelectedTransaction_Customer"/>
 

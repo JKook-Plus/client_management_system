@@ -19,6 +19,7 @@ namespace client_management_system.ViewModels
     {
         //General Commands
 
+        //Converts object to file
         public void JsonSerialize(object data, string filePath)
         {
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
@@ -29,17 +30,20 @@ namespace client_management_system.ViewModels
 
         //Shell commands
 
+            //loads on program start
         public ShellViewModel()
         {
             JsonDeserializeUsers(@"C:\Temp\users.json");
             JsonDeserializeTransactions(@"C:\Temp\transactions.json");
         }
 
+        //loads Transaction Page
         public void LoadPageOne()
         {
             ActivateItem(new FirstChildViewModel());
         }
 
+        //Loads Customer Page
         public void LoadPageTwo()
         {
             ActivateItem(new SecondChildViewModel());
@@ -61,13 +65,14 @@ namespace client_management_system.ViewModels
                 NotifyOfPropertyChange(() => SelectedCustomer);
             }
         }
-
+        //Reloads Cusomers
         public void updateCustomers()
         {
             JsonSerialize(_customers, @"C:\Temp\users.json");
             JsonDeserializeUsers(@"C:\Temp\users.json");
         }
 
+        //Adds Customer 
         public void AddUser(
                             string firstName = "",
                             string lastName = "",
@@ -81,11 +86,13 @@ namespace client_management_system.ViewModels
             SaveCustomers();
         }
 
+        //Saves Customer
         public void SaveCustomers()
         {
             JsonSerialize(Customers, @"C:\Temp\users.json");
         }
 
+        //Deletes Selected Customer
         public void DeleteSelectedUser()
         {
             if (_selectedCustomer == null)
@@ -100,7 +107,7 @@ namespace client_management_system.ViewModels
             }
         }
 
-
+        //Converts User file to object
         public void JsonDeserializeUsers(string filePath)
         {
             if (File.Exists(filePath) && (System.IO.File.ReadAllText(filePath) != ""))
@@ -161,18 +168,21 @@ namespace client_management_system.ViewModels
             set { _transactions = value; }
         }
 
+        //Adds New transaction
         public void AddTransactionBtn(string customer, string productName, string variation, float discount, float amount, float quantity)
         {
             Transactions.Add(new TransactionModel { Customer = _selectedCustomer.FirstName + " " + _selectedCustomer.LastName, ProductName = productName, Variation = variation, Discount = discount, Amount = amount, Quantity = quantity });
             SaveTransactions();
         }
 
+        // Internal adding existing transaction
         public void AddTransaction(string customer, string productName, string variation, float discount, float amount, float quantity)
         {
             Transactions.Add(new TransactionModel { Customer = customer, ProductName = productName, Variation = variation, Discount = discount, Amount = amount, Quantity = quantity });
             SaveTransactions();
         }
 
+        //Deletes transaction
         public void DeleteSelectedTransaction()
         {
             if (_selectedTransaction == null)
@@ -186,11 +196,12 @@ namespace client_management_system.ViewModels
                 SaveTransactions();
             }
         }
+        //Saves Transactions
         public void SaveTransactions()
         {
             JsonSerialize(Transactions, @"C:\Temp\transactions.json");
         }
-
+        //Converts file to object for transactions
         public void JsonDeserializeTransactions(string filePath)
         {
             if (File.Exists(filePath) && (System.IO.File.ReadAllText(filePath) != ""))

@@ -38,6 +38,7 @@ namespace client_management_system.ViewModels
             
         }
 
+        //button to delete user
         public void deleteUserBtn()
         {
             DeleteSelectedUser();
@@ -108,11 +109,13 @@ namespace client_management_system.ViewModels
             }
         }
 
+        //checks to see if I can clear text
         public bool CanClearText(string firstName, string lastName, string email, string address, string phone, DateTime dob)
         {
             return !String.IsNullOrWhiteSpace(firstName) || !String.IsNullOrWhiteSpace(lastName) || !String.IsNullOrWhiteSpace(email) || !String.IsNullOrWhiteSpace(address);
         }
 
+        //Clears Inputed text
         public void ClearText(string firstName, string lastName, string email, string address, string phone, DateTime dob)
         {
             FirstName = "";
@@ -123,6 +126,7 @@ namespace client_management_system.ViewModels
             DOB = DateTime.Now;
         }
 
+        //Checks to see if I can add a user
         public bool CanAddUser(string firstName, string lastName, string email, string address, string phone, DateTime dob)
         {
             return !String.IsNullOrWhiteSpace(firstName) && !String.IsNullOrWhiteSpace(lastName);
