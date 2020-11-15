@@ -32,6 +32,7 @@ namespace client_management_system.ViewModels
         public ShellViewModel()
         {
             JsonDeserializeUsers(@"C:\Temp\users.json");
+            JsonDeserializeTransactions(@"C:\Temp\transactions.json");
         }
 
         public void LoadPageOne()
@@ -77,13 +78,12 @@ namespace client_management_system.ViewModels
         {
 
             Customers.Add(new CustomerModel { FirstName = firstName, LastName = lastName, Email = email, Address = address, Phone = phone, DOB = dob });
-            JsonSerialize(Customers, @"C:\Temp\users.json");
+            SaveCustomers();
         }
 
         public void SaveCustomers()
         {
-            JsonSerialize(_customers, @"C:\Temp\users.json");
-            JsonSerialize(_customers, @"C:\Temp\users.json");
+            JsonSerialize(Customers, @"C:\Temp\users.json");
         }
 
         public void DeleteSelectedUser()
@@ -161,11 +161,69 @@ namespace client_management_system.ViewModels
             set { _transactions = value; }
         }
 
+        public void AddTransactionBtn(string customer, string productName, string variation, float discount, float amount, float quantity)
+        {
+            Transactions.Add(new TransactionModel { Customer = _selectedCustomer.FirstName + " " + _selectedCustomer.LastName, ProductName = productName, Variation = variation, Discount = discount, Amount = amount, Quantity = quantity });
+            SaveTransactions();
+        }
+
         public void AddTransaction(string customer, string productName, string variation, float discount, float amount, float quantity)
         {
-            Transactions.Add(new TransactionModel { Customer = _selectedCustomer.FirstName+" "+_selectedCustomer.LastName, ProductName = productName, Variation = variation, Discount = discount, Amount = amount, Quantity = quantity });
+            Transactions.Add(new TransactionModel { Customer = customer, ProductName = productName, Variation = variation, Discount = discount, Amount = amount, Quantity = quantity });
+            SaveTransactions();
+        }
+
+        public void DeleteSelectedTransaction()
+        {
+            if (_selectedTransaction == null)
+            {
+                Trace.WriteLine("_selectedTransaction is empty");
+            }
+            else
+            {
+                _transactions.Remove(_selectedTransaction);
+                Trace.WriteLine(Transactions);
+                SaveTransactions();
+            }
+        }
+        public void SaveTransactions()
+        {
+            JsonSerialize(Transactions, @"C:\Temp\transactions.json");
+        }
+
+        public void JsonDeserializeTransactions(string filePath)
+        {
+            if (File.Exists(filePath) && (System.IO.File.ReadAllText(filePath) != ""))
+            {
+                _transactions = new BindableCollection<TransactionModel>();
+                string aaa = System.IO.File.ReadAllText(filePath);
+
+                dynamic temp_object = JsonConvert.DeserializeObject(aaa);
+                foreach (var item in temp_object)
+                {
+                    Trace.WriteLine((item.Customer, item.ProductName, item.Variation, item.Discount, item.Amount, item.Quantity));
+
+                    string c = item.Customer;
+                    string pn = item.ProductName;
+                    string v = item.Variation;
+                    float d = item.Discount;
+                    float a = item.Amount;
+                    float q = item.Quantity;
+
+                    AddTransaction(c, pn, v, d, a, q);
+                }
+
+
+            }
+            else
+            {
+                Trace.WriteLine("The file \"{0}\" does not exist", filePath);
+            }
+
         }
 
 
     }
+
+
 }

@@ -88,6 +88,11 @@ namespace client_management_system.ViewModels
             return !String.IsNullOrWhiteSpace(productName) || !String.IsNullOrWhiteSpace(variation) || !String.IsNullOrWhiteSpace(discount.ToString()) || !String.IsNullOrWhiteSpace(amount.ToString()) || !String.IsNullOrWhiteSpace(quantity.ToString());
         }
 
+        public void DeleteTransactionBtn()
+        {
+            DeleteSelectedTransaction();
+        }
+
         public void ClearText(string _customer, string productName, string variation, float discount, float amount, float quantity)
         {
             ProductName = "";

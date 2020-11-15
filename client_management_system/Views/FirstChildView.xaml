@@ -89,7 +89,7 @@
             <TextBox  Grid.Column="7" x:Name="Quantity" Grid.Row="1" MinWidth="100"/>
 
             <Button Grid.Row="0" Grid.Column="8" x:Name="ClearText" Content="Clear Text" Padding="5,0,5,0" MinWidth="100"/>
-            <Button Grid.Row="1" Grid.Column="8" x:Name="AddTransaction" Content="Add Transaction" Padding="5,0,5,0" MinWidth="100"/>
+            <Button Grid.Row="1" Grid.Column="8" x:Name="AddTransactionBtn" Content="Add Transaction" Padding="5,0,5,0" MinWidth="100"/>
 
         </Grid>
         
@@ -109,7 +109,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="1" Grid.Column="1" Text="First Name: " HorizontalAlignment="Right" FontWeight="Bold"/>
             <TextBlock Grid.Row="1" Grid.Column="2" x:Name="SelectedCustomer_FirstName"/>
@@ -131,14 +131,11 @@
 
         </Grid>
 
-        
-        
-            
         <DataGrid SelectionMode="Single" x:Name="Transactions" 
                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
                   CanUserAddRows="False" CanUserReorderColumns="False" IsReadOnly="False" AlternatingRowBackground="LightGray"
                   AutoGenerateColumns="False"
-                  cal:Message.Attach="[Event CellEditEnding] = [Action SaveCustomers()]"
+                  cal:Message.Attach="[Event CellEditEnding] = [Action SaveTransactions()]"
                   CanUserDeleteRows="False">
 
             <DataGrid.Columns>
@@ -151,7 +148,67 @@
                 <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" Width="100"/>
             </DataGrid.Columns>
 
+            
+            
         </DataGrid>
 
+        <Grid Grid.Row="3" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="deleteTransactionBtn" Grid.Column="0" Grid.Row="0" Content="Delete Selected Transaction" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Padding="10,0,10,0"
+               />
+            <Button x:Name="savetrans" Grid.Column="1" Grid.Row="0" Content="Save Transactions" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Padding="10,0,10,0"
+                cal:Message.Attach="[Event Click] = [Action SaveTransactions()]"/>
+
+            <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Customer: " HorizontalAlignment="Right" FontWeight="Bold"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" x:Name="SelectedTransaction_Customer"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="Product Name: " HorizontalAlignment="Right" FontWeight="Bold"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" x:Name="SelectedTransaction_ProductName"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="Variation: " HorizontalAlignment="Right" FontWeight="Bold"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" x:Name="SelectedTransaction_Variation"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="Discount: " HorizontalAlignment="Right" FontWeight="Bold"/>
+        <TextBlock Grid.Row="4" Grid.Column="2" x:Name="SelectedTransaction_Discount"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="Quantity: " HorizontalAlignment="Right" FontWeight="Bold"/>
+        <TextBlock Grid.Row="5" Grid.Column="2" x:Name="SelectedTransaction_Quantity"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="1" Text="Cost: " HorizontalAlignment="Right" FontWeight="Bold"/>
+        <TextBlock Grid.Row="6" Grid.Column="2" x:Name="SelectedTransaction_Cost"/>
+    </Grid>
+        </Grid>
+        
+        
     </Grid>
 </UserControl>

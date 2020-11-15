@@ -23,7 +23,6 @@ namespace client_management_system.Models
         public float Amount { get; set; }
         [DataMember]
         public float Quantity { get; set; }
-        [DataMember]
         public float Cost {
             get
             {
